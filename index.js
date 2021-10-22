@@ -68,6 +68,7 @@ fs.existsSync(authfile) && caliph.loadAuthInfo(authfile)
      msg.message = msg.message.hasOwnProperty('ephemeralMessage') ? msg.message.ephemeralMessage.message : msg.message
 	if (msg.key && msg.key.remoteJid == 'status@broadcast') return 
 	if (!msg.key.fromMe && selfmode) return
+	if (msg.key.id.startsWith('XYZ0')) return
 	simple.smsg(caliph, msg)
 	if(autoread) caliph.chatRead(msg.chat)
     require('./message/caliph')(caliph, msg)
