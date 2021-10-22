@@ -323,7 +323,7 @@ case prefix+'tiktokdl':
 if (!q) throw 'URLnya Mana kak?'
 if (!/https?:\/\//.test(q) && !q.includes('tiktok.com')) throw `Silahkan masukkan URL yang valid!`
 m.reply(`Mohon tunggu sebentar....`)
-url = global.API('caliphAPI', '/tiktok', { url : q }, 'apikey') 
+url = global.API('caliphAPI', '/api/tiktok', { url : q }, 'apikey') 
 json = await axios.get(url)
 if (json.data.result == {}) throw 'URL tidak valid!'
 yeh = await getBuffer(json.data.result.nowatermark).catch(err => {
