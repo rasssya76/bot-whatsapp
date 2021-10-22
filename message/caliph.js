@@ -140,12 +140,12 @@ break
 case prefix+'lolivid':
 case prefix+'asupanloli':
 m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
-var url = global.API('caliphAPI', '/asupan/loli', {}, 'apikey')
+var url = global.API('caliphAPI', '/api/asupan/loli', {}, 'apikey')
 caliph.sendMessage(m.chat, { url }, mType.video, { quoted: m })
 break
 case prefix+'waifu':
 m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
-var url = global.API('caliphAPI', '/waifu', {}, 'apikey')
+var url = global.API('caliphAPI', '/api/waifu', {}, 'apikey')
 caliph.sendMessage(m.chat, { url }, mType.image, { quoted: m , caption: 'Larii Ada Wibu...'})
 break
 case prefix+'public':
@@ -160,7 +160,7 @@ m.reply(`\`\`\`STATUS : SELF\`\`\``)
 break
 case prefix+'loli':
 m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
-var url = global.API('caliphAPI', '/loli', {}, 'apikey')
+var url = global.API('caliphAPI', '/api/loli', {}, 'apikey')
 caliph.sendMessage(m.chat, { url }, mType.image, { quoted: m , caption: 'Lolinya banh...'})
 break
 case prefix+'setthumb':
@@ -214,7 +214,7 @@ m.reply('Speed : '+String(new Date - old) + 'ms')
 break
 case prefix+'ppcouple': 
 m.reply('Mohon tunggu sebentar...')
-data = await getJson(global.API('caliphAPI', '/couple', null, 'apikey'))
+data = await getJson(global.API('caliphAPI', '/api/ppcouple', null, 'apikey'))
 caliph.sendMessage(m.chat, { url: data.result.male }, 'imageMessage', { quoted: m })
 caliph.sendMessage(m.chat, { url: data.result.female }, 'imageMessage', { quoted: m })
 break
@@ -226,14 +226,14 @@ m.reply(random)
 break
 case prefix+'play':
 if (!q) throw 'Cari apa?'
-var { video, result } = await getJson(global.API('caliphAPI', '/ytplaymp3', { text }, 'apikey'))
+var { video, result } = await getJson(global.API('caliphAPI', '/api/ytplaymp3', { text }, 'apikey'))
 var caption = `Title : ${video.title}\nDuration : ${video.timestamp}\nUrl : https://youtu.be/${video.videoId}\nViews : ${video.views}\nUpload by : ${video.author.name}\nLink Channel : ${video.author.url}`.trim()
 caliph.sendMessage(m.chat, { url: video.image }, 'imageMessage', { quoted: m, caption })
 caliph.sendMessage(m.chat, { url: result.url }, 'audioMessage', { quoted: m, mimetype: 'audio/mpeg' })
 break
 case prefix+'playvid':
 if (!q) throw 'Cari apa?'
-var { video, result } = await getJson(global.API('caliphAPI', '/ytplaymp4', { text }, 'apikey'))
+var { video, result } = await getJson(global.API('caliphAPI', '/api/ytplaymp4', { text }, 'apikey'))
 var caption = `Title : ${video.title}\nDuration : ${video.timestamp}\nUrl : https://youtu.be/${video.videoId}\nViews : ${video.views}\nUpload by : ${video.author.name}\nLink Channel : ${video.author.url}`.trim()
 caliph.sendMessage(m.chat, { url: video.image }, 'imageMessage', { quoted: m, caption })
 caliph.sendMessage(m.chat, { url: result.url }, 'videoMessage', { quoted: m })
@@ -303,7 +303,7 @@ case prefix+'pinterest':
 case prefix+'pin':
 if (!q) throw `Cari apa?`
 m.reply('_*Tunggu permintaan anda sedang diproses...*_')
-var { result } = await getJson(global.API('caliphAPI', '/pinterest', { q }, 'apikey'))
+var { result } = await getJson(global.API('caliphAPI', '/api/pinterest', { q }, 'apikey'))
 caliph.sendMessage(m.chat, { url: result[Math.floor(Math.random() * result.length)] }, mType.image, { quoted: m, caption: `Hasil pencarian : ${q}` })
 break
 case prefix+'wiki':
@@ -315,7 +315,7 @@ hasil = `*${text}*\n\n${result}`.trim()
 m.reply(hasil)
 break
 case prefix+'darkjokes':
-url = global.API('caliphAPI',  '/darkjokes', null, 'apikey')
+url = global.API('caliphAPI',  '/api/darkjokes', null, 'apikey')
 caliph.sendMessage(m.chat,  { url }, mType.image,  { quoted: m })
 break
 case prefix+'tiktok':
