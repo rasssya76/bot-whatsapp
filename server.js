@@ -24,9 +24,9 @@ function connect(conn) {
          youtube: 'https://youtube.com/channel/UCiOxx_EjWiINhwU7JFx2VLA',
          website: 'https://me.caliph71.xyz'
 },
-        source_code: 'https://github.com/caliph71/bot-wa'
+        source_code: 'https://github.com/caliph91/bot-whatsapp'
 })
-    } else res.redirect("https://github.com/caliph71/bot-wa")
+    } else res.redirect("https://github.com/caliph91/bot-whatsapp")
     })
     
  app.listen(PORT, () => console.log('App listened on port', PORT))
