@@ -50,6 +50,11 @@ if (isCmd && !m.isGroup) {console.log(color('[EXEC]', 'cyan'), color(moment(m.me
 if (isCmd && m.isGroup) {console.log(color('[EXEC]', 'cyan'), color(moment(m.messageTimestamp.low * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(caliph.getName(m.sender)), 'in', color(groupMetadata.subject))}
 let text = q = args.join(' ')
 
+if (m.mentionedJid.includes(caliph.user.jid)) {
+// function kalo ngetag bakal ngirim stiker sendiri
+caliph.sendMessage(m.chat, { url: 'https://i.ibb.co/sFbdXfj/6984d8315885.webp' }, 'stickerMessage')
+} 
+
 /* Fake Reply */
 function freply(texts = fakereplyt, thumbnail = Buffer.alloc(0)) {
 return {key:{ fromMe:false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: {
