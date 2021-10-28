@@ -70,7 +70,7 @@ fs.existsSync(authfile) && caliph.loadAuthInfo(authfile)
         inc = (typeof msg.text == 'string' ? msg.text : '')
         comm = inc.split(' ')[0]
         pref = /^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?@#$%^&.\/\\©^]/.test(comm) ? comm.match(/^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?@#$%^&.\/\\©^]/gi) : global.prefix
-        isCmd = body.startsWith(prefix)
+        isCmd = inc.startsWith(prefix)
 	if (msg.key && msg.key.remoteJid == 'status@broadcast') return 
 	if (isCmd && !msg.key.fromMe && selfmode) return
 	if (msg.key.id.startsWith('XYZ0')) return
