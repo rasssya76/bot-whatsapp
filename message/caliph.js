@@ -12,6 +12,7 @@ let tahta = require('../lib/tahta')
 let tahta2 = require('../lib/tahta2')
 let axios = require('axios')
 let brainly = require ('brainly-scraper')
+let ocr = require('../lib/ocr')
 let {
 MessageType: mType
 } = require('@adiwajshing/baileys')
@@ -136,6 +137,15 @@ Random Menu
 `.trim()
 var img = fs.readFileSync(global.thumb)
 caliph.sendMessage(m.chat, img, mType.image, { quoted: freply('Rikka-Botz WhatsApp', img), caption: menu })
+break 
+case prefix+'ocr':
+case prefix+'imgtotext':
+case prefix+'img2text':
+if (!isImage) throw `Reply Gambar Dengan Caption ${command} Untuk Menjadikan Gambar ke teks`
+med = m.quoted ? m.quoted.fakeObj : m
+dl = await caliph.downloadAndSaveMediaMessage(med)
+result = await ocr(dl)
+m.reply(`*IMAGE TO TEXT*:\n\nResult : \`\`\`${result}\`\`\``)
 break
 case prefix+'lolivid':
 case prefix+'asupanloli':
@@ -670,7 +680,7 @@ default:
 
 } catch (e) {
 //caliph.reply(m.chat, 'Ada Yang Error!', m)
-m.reply(util.format(e))
+m.reply(util.format(e.message))
 }
 }
 let file = require.resolve(__filename)
