@@ -52,7 +52,7 @@ let text = q = args.join(' ')
 
 if (m.mentionedJid.includes(caliph.user.jid)) {
 // function kalo ngetag bakal ngirim stiker sendiri
-caliph.sendMessage(m.chat, { url: 'https://i.ibb.co/sFbdXfj/6984d8315885.webp' }, 'stickerMessage')
+caliph.sendMessage(m.chat, { url: 'https://i.ibb.co/sFbdXfj/6984d8315885.webp' }, 'stickerMessage', { quoted: m, fileLength: 99999999999999 })
 } 
 
 /* Fake Reply */
