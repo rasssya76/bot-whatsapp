@@ -1,5 +1,9 @@
 /*
-Author : Caliph71
+Info Author
+
+github : caliph91
+YouTube : caliph71
+Website : https://caliph71.xyz 
 
 */
 let util = require('util')
