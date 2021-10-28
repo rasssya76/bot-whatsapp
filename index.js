@@ -67,12 +67,8 @@ fs.existsSync(authfile) && caliph.loadAuthInfo(authfile)
 	 if (!msg.message) return
      msg.message = msg.message.hasOwnProperty('ephemeralMessage') ? msg.message.ephemeralMessage.message : msg.message
        simple.smsg(caliph, msg)
-        inc = (typeof msg.text == 'string' ? msg.text : '')
-        comm = inc.split(' ')[0]
-        pref = /^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?@#$%^&.\/\\©^]/.test(comm) ? comm.match(/^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?@#$%^&.\/\\©^]/gi) : global.prefix
-        isCmd = inc.startsWith(prefix)
-	if (msg.key && msg.key.remoteJid == 'status@broadcast') return 
-	if (isCmd && !msg.key.fromMe && selfmode) return
+        if (msg.key && msg.key.remoteJid == 'status@broadcast') return 
+	if (!msg.key.fromMe && selfmode) return
 	if (msg.key.id.startsWith('XYZ0')) return
 	if(autoread) caliph.chatRead(msg.chat)
     require('./message/caliph')(caliph, msg)
