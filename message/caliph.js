@@ -177,6 +177,11 @@ if (!isOwner) throw `Perintah Ini Khusus Owner Bot!`
 global.selfmode = true
 m.reply(`\`\`\`STATUS : SELF\`\`\``)
 break
+case prefix+'nulis':
+if (!text) throw `Teksnya ko gada mhank?`
+var { result } = await getJson(`https://pythonapis.clph.me/api/nulis?text=${encodeURIComponent(text)}`)
+caliph.sendMessage(m.chat, { url: result }, mType.image, { quoted: m, fileLength: 999999999999999, caption: 'Neh mhank. Dah Jadi Ni...' })
+break
 case prefix+'loli':
 m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
 var url = global.API('caliphAPI', '/api/loli', {}, 'apikey')
