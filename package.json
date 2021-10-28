@@ -26,7 +26,8 @@
   },
   "scripts": {
     "test": "node test.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "update-sc": "git pull"
   },
   "author": "caliph71",
   "license": "ISC"
