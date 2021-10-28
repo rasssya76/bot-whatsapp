@@ -25,7 +25,7 @@ console.log(color(figlet.textSync('Base Wabot', {
 		width: 80,
 		whitespaceBreak: false
 	}), 'cyan'))
-console.log(color('[ CREATED BY Caliph71 ]'))
+console.log(color('[ CREATED BY Caliph91 ]'))
 caliph.on('qr', async () => {
 console.log('Scan kode qr ini untuk menjalankan bot')
 })
@@ -41,7 +41,7 @@ fs.existsSync(authfile) && caliph.loadAuthInfo(authfile)
 	})
 	await caliph.connect().then(async v => {
         global.server ? require('./server')(caliph) : ''
-	console.log(`Nama Bot : ${caliph.user.name}\nID Bot : ${awesome('+'+caliph.user.jid.split('@')[0]).getNumber('international')}\n\nMode : ${selfmode ? 'Self Mode' : 'Public Mode'}\nHostname : ${os.hostname()}`)
+	console.log(`Nama Bot : ${caliph.user.name}\nID Bot : ${awesome('+'+caliph.user.jid.split('@')[0]).getNumber('international')}\nMode : ${selfmode ? 'Self Mode' : 'Public Mode'}\nHostname : ${os.hostname()}`)
 		fs.writeFileSync(authfile, JSON.stringify(caliph.base64EncodedAuthInfo(), null, '\t'))
 	owner.map(a => caliph.reply(a + "@c.us", 'Bot Started.....'))
 		})
