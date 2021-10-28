@@ -680,7 +680,7 @@ default:
 
 } catch (e) {
 //caliph.reply(m.chat, 'Ada Yang Error!', m)
-m.reply(util.format(e.message))
+m.reply(util.format(e.message ? e.message : e))
 }
 }
 let file = require.resolve(__filename)
