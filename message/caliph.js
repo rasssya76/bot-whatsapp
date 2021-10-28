@@ -76,10 +76,10 @@ return {key:{ fromMe:false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remo
 						 switch(command) {
 case prefix+'help': case prefix+'menu':
 caliph.updatePresence(m.chat, 'composing')
-var menu = `*WHATSAPP BOT*
+var menu = `*SeLF BOT*
 
 Source code : https://clph.pw/m9oU
-Author : @caliph91
+Author : RAMAGANZ76
 Lib : Baileys
 Battery : ${caliph.battery ? caliph.battery.value +'%' : 'Belum kedetect'} ${caliph.battery ? caliph.battery.live ? '🔌 Charging...' : '⚡ Discharging' : ''}
 
@@ -145,7 +145,7 @@ Random Menu
 
 `.trim()
 var img = fs.readFileSync(global.thumb)
-caliph.sendMessage(m.chat, img, mType.image, { quoted: freply('Rikka-Botz WhatsApp', img), caption: menu })
+caliph.sendMessage(m.chat, img, mType.image, { quoted: freply('Self-Botz WhatsApp', img), caption: menu })
 break 
 case prefix+'ocr':
 case prefix+'imgtotext':
