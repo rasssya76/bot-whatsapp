@@ -67,7 +67,7 @@ fs.existsSync(authfile) && caliph.loadAuthInfo(authfile)
 	 if (!msg.message) return
      msg.message = msg.message.hasOwnProperty('ephemeralMessage') ? msg.message.ephemeralMessage.message : msg.message
        simple.smsg(caliph, msg)
-        inc = (typeof m.text == 'string' ? m.text : '')
+        inc = (typeof msg.text == 'string' ? msg.text : '')
         comm = inc.split(' ')[0]
         pref = /^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?@#$%^&.\/\\©^]/.test(comm) ? comm.match(/^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?@#$%^&.\/\\©^]/gi) : global.prefix
         isCmd = body.startsWith(prefix)
