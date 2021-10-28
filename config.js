@@ -36,14 +36,15 @@ global.APIs = { // API Prefix
 }
 
 global.APIKeys = { // APIKey Here
-   'http://api.vhtear.com': 'YOUR-APIKEY',
-   'https://api.lolhuman.xyz': 'YOUR-APIKEY',
-  'https://api.xteam.xyz': 'YOUR-APIKEY'
+   'http://api.vhtear.com': 'FauzanBotz',
+   'https://api.lolhuman.xyz': '511fc49c7ad4edcecf8653cf',
+  'https://api.xteam.xyz': 'kurrxd09'
 ,
   'https://api.zeks.me': 'rikkabotwa',
-  'https://rikka-api.xyz': 'beta',
-   'https://api.caliph71.xyz': 'beta'
+  'https://rikka-api.xyz': 'vKi3BY7N',
+   'https://api.caliph71.xyz': 'NICWWUGf'
 }
+
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
