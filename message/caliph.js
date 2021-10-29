@@ -1,9 +1,5 @@
 /*
-Info Author
-
-github : caliph91
-YouTube : caliph71
-Website : https://caliph71.xyz 
+Author : Caliph71
 
 */
 let util = require('util')
@@ -16,7 +12,6 @@ let tahta = require('../lib/tahta')
 let tahta2 = require('../lib/tahta2')
 let axios = require('axios')
 let brainly = require ('brainly-scraper')
-let ocr = require('../lib/ocr')
 let {
 MessageType: mType
 } = require('@adiwajshing/baileys')
@@ -50,11 +45,6 @@ if (isCmd && !m.isGroup) {console.log(color('[EXEC]', 'cyan'), color(moment(m.me
 if (isCmd && m.isGroup) {console.log(color('[EXEC]', 'cyan'), color(moment(m.messageTimestamp.low * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(caliph.getName(m.sender)), 'in', color(groupMetadata.subject))}
 let text = q = args.join(' ')
 
-if (m.mentionedJid.includes(caliph.user.jid)) {
-// function kalo ngetag bakal ngirim stiker sendiri
-caliph.sendMessage(m.chat, { url: 'https://i.ibb.co/sFbdXfj/6984d8315885.webp' }, 'stickerMessage', { quoted: m, fileLength: 99999999999999 })
-} 
-
 /* Fake Reply */
 function freply(texts = fakereplyt, thumbnail = Buffer.alloc(0)) {
 return {key:{ fromMe:false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: {
@@ -76,10 +66,10 @@ return {key:{ fromMe:false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remo
 						 switch(command) {
 case prefix+'help': case prefix+'menu':
 caliph.updatePresence(m.chat, 'composing')
-var menu = `*SeLF BOT*
+var menu = `*SELF BOT*
 
 Source code : https://clph.pw/m9oU
-Author : RAMAGANZ76
+Author : @YoRama
 Lib : Baileys
 Battery : ${caliph.battery ? caliph.battery.value +'%' : 'Belum kedetect'} ${caliph.battery ? caliph.battery.live ? '🔌 Charging...' : '⚡ Discharging' : ''}
 
@@ -145,16 +135,7 @@ Random Menu
 
 `.trim()
 var img = fs.readFileSync(global.thumb)
-caliph.sendMessage(m.chat, img, mType.image, { quoted: freply('Self-Botz WhatsApp', img), caption: menu })
-break 
-case prefix+'ocr':
-case prefix+'imgtotext':
-case prefix+'img2text':
-if (!isImage) throw `Reply Gambar Dengan Caption ${command} Untuk Menjadikan Gambar ke teks`
-med = m.quoted ? m.quoted.fakeObj : m
-dl = await caliph.downloadAndSaveMediaMessage(med)
-result = await ocr(dl)
-m.reply(`*IMAGE TO TEXT*:\n\nResult : \`\`\`${result}\`\`\``)
+caliph.sendMessage(m.chat, img, mType.image, { quoted: freply('self-Botz WhatsApp', img), caption: menu })
 break
 case prefix+'lolivid':
 case prefix+'asupanloli':
@@ -176,11 +157,6 @@ case prefix+'self':
 if (!isOwner) throw `Perintah Ini Khusus Owner Bot!`
 global.selfmode = true
 m.reply(`\`\`\`STATUS : SELF\`\`\``)
-break
-case prefix+'nulis':
-if (!text) throw `Teksnya ko gada mhank?`
-var { result } = await getJson(`https://pythonapis.clph.me/api/nulis?text=${encodeURIComponent(text)}`)
-caliph.sendMessage(m.chat, { url: result }, mType.image, { quoted: m, fileLength: 999999999999999, caption: 'Neh mhank. Dah Jadi Ni...' })
 break
 case prefix+'loli':
 m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
@@ -391,14 +367,6 @@ isQuod.map(a => {
 caliph.groupRemove(m.chat, [a]).catch(() => m.reply('Gagal!'))
 })
 break
-case prefix+'bcgc': 
-if (!isOwner) return m.reply('Perintah ini khusus Owner bot!')
-if (!args[0]) return m.reply('Teksnya mana amsu!')
-var chats = caliph.chats.all().filter(v => v.jid.endsWith('g.us') && !v.read_only && v.message && !v.announce).map(v => v.jid)
-  var content = await caliph.cMod(m.chat, m, /bc|broadcast/i.test(text) ? text : text + '\n' + '' + '*「 BROADCAST 」*')
-  for (let id of chats) await caliph.copyNForward(id, content, true)
-  caliph.reply(m.chat, `_Mengirim pesan broadcast ke ${chats.length} group_`, m)
-break
 case prefix+'promote': 
 if (!m.isGroup) return m.reply('Perintah ini khusus didalam grup!')
 if (!isAdmin) return m.reply('Perintah ini khusus admin grup!')
@@ -573,7 +541,6 @@ fs.writeFileSync('./database/chat/left.json', JSON.stringify(left, null, 2))
 break
 case prefix+'hidetag': 
 if (!m.isGroup) return m.reply('Perintah ini khusus didalam grup!')
-if (!isAdmin) return m.reply('Perintah ini khusus admin grup!')
 let users = groupMem.map(u => u.jid)
 
   let qz = m.quoted ? m.quoted : m
@@ -694,7 +661,7 @@ default:
 
 } catch (e) {
 //caliph.reply(m.chat, 'Ada Yang Error!', m)
-m.reply(util.format(e.message ? e.message : e))
+m.reply(util.format(e))
 }
 }
 let file = require.resolve(__filename)
