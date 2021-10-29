@@ -234,7 +234,7 @@ case 'buka':
     case 'subject':
     if (args.length == 1) return m.reply(`Example : ${command} ${args[0]} BOT WA`)
     await caliph.groupUpdateSubject(m['chat'], args.slice(1).join(' '))
-    m.reply(``\`\`\Sukses Mengganti Nama Grup Menjadi : ${args.slice(1).join(' ')}`/`/`/`)
+    m.reply(``\`\`\Sukses Mengganti Nama Grup Menjadi : ${args.slice(1).join(' ')}`/`/`/``)
      break
      case 'revoke':
      case 'reset':
