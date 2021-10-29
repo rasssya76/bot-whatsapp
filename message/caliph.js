@@ -165,7 +165,13 @@ break
 case prefix+'waifu':
 m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
 var waifu = global.API('https://api.waifu.pics', '/sfw/waifu')
-var { url } await getJson(waifu)
+var { url } = await getJson(waifu)
+caliph.sendMessage(m.chat, { url }, mType.image, { quoted: m , caption: 'Larii Ada Wibu...'})
+break
+case prefix+'neko':
+m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
+var waifu = global.API('https://api.waifu.pics', '/sfw/neko')
+var { url } = await getJson(waifu)
 caliph.sendMessage(m.chat, { url }, mType.image, { quoted: m , caption: 'Larii Ada Wibu...'})
 break
 case prefix+'public':
@@ -500,12 +506,12 @@ footerText: `🔰 ${caliph.user.name} By Caliph71🔰`,
 const sendMsg = await caliph.prepareMessageFromContent(m.chat,{buttonsMessage},{ contextInfo: { mentionedJid: [] }, sendEphemeral: true})
 
 caliph.relayWAMessage(sendMsg)
-} else if (args[0].toLowerCase() == 'enable') {
+} else if (/on|enable/gi.test(args[0])) {
 if (antidelete.includes(m.chat)) return m.reply('Antidelete Telah Diaktifkan Sebelumnya')
 antidelete.push(m.chat) 
 fs.writeFileSync('./database/chat/antidelete.json', JSON.stringify(antidelete, null, 2))
 m.reply('Sukses mengaktifkan antidelete di grup ini....')
-} else if (args[0].toLowerCase() == 'disable') {
+} else if (/off|disable/gi.test(args[0])) {
 index = antidelete.indexOf(m.chat)
 antidelete.splice(index, 1) 
 m.reply('Sukses menonaktifkan antidelete di grup ini....')
@@ -535,7 +541,8 @@ if (welcome.includes(m.chat)) return m.reply('Welcome Telah Diaktifkan Sebelumny
 welcome.push(m.chat) 
 fs.writeFileSync('./database/chat/welcome.json', JSON.stringify(welcome, null, 2))
 m.reply('Sukses mengaktifkan welcome di grup ini....')
-} else if (/off|disable/gi.test(args[0])) {
+} else if (
+|disable/gi.test(args[0])) {
 index = welcome.indexOf(m.chat)
 welcome.splice(index, 1) 
 m.reply('Sukses menonaktifkan welcome di grup ini....')
