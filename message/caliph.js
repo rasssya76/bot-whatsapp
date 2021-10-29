@@ -541,8 +541,7 @@ if (welcome.includes(m.chat)) return m.reply('Welcome Telah Diaktifkan Sebelumny
 welcome.push(m.chat) 
 fs.writeFileSync('./database/chat/welcome.json', JSON.stringify(welcome, null, 2))
 m.reply('Sukses mengaktifkan welcome di grup ini....')
-} else if (
-|disable/gi.test(args[0])) {
+} else if (/off|disable/gi.test(args[0])) {
 index = welcome.indexOf(m.chat)
 welcome.splice(index, 1) 
 m.reply('Sukses menonaktifkan welcome di grup ini....')
