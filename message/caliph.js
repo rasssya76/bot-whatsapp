@@ -329,7 +329,7 @@ break
 case prefix+'shortlink':
 case prefix+'shorturl':
 if (!text) throw `linknya mana??`
-var { url } = (await getJson('https://clph.pw/create.php?url='+encodeURIComponent(text))).result
+var { url, delete: del } = (await getJson('https://clph.pw/create.php?url='+encodeURIComponent(text))).result
 response = `*SHORT URL*\n
 Original Url : \`\`\`${text}\`\`\`
 
@@ -337,6 +337,9 @@ Original Url : \`\`\`${text}\`\`\`
 
 Short Url : \`\`\`${url}\`\`\`
 
+==================================
+
+Delete URL : \`\`\`${del}\`\`\`
 `.trim()
 m.reply(response)
 break
