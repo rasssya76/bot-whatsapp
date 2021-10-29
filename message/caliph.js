@@ -164,7 +164,8 @@ caliph.sendMessage(m.chat, { url }, mType.video, { quoted: m })
 break
 case prefix+'waifu':
 m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
-var url = global.API('caliphAPI', '/api/waifu', {}, 'apikey')
+var waifu = global.API('https://api.waifu.pics', '/sfw/waifu')
+var { url } await getJson(waifu)
 caliph.sendMessage(m.chat, { url }, mType.image, { quoted: m , caption: 'Larii Ada Wibu...'})
 break
 case prefix+'public':
