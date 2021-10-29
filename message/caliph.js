@@ -331,12 +331,11 @@ case prefix+'shorturl':
 if (!text) throw `linknya mana??`
 var { url } = (await getJson('https://clph.pw/create.php?url='+encodeURIComponent(text))).result
 response = `*SHORT URL*\n
-
 Original Url : \`\`\`${text}\`\`\`
 
 ==================================
 
-Short Url : ${url}
+Short Url : \`\`\`${url}\`\`\`
 
 `.trim()
 m.reply(response)
