@@ -573,7 +573,7 @@ fs.writeFileSync('./database/chat/left.json', JSON.stringify(left, null, 2))
 break
 case prefix+'hidetag': 
 if (!m.isGroup) return m.reply('Perintah ini khusus didalam grup!')
-if (!isAdmin || !isOwner) return m.reply('Perintah ini khusus admin grup!')
+if (!isAdmin) return m.reply('Perintah ini khusus admin grup!')
 let users = groupMem.map(u => u.jid)
 
   let qz = m.quoted ? m.quoted : m
@@ -590,6 +590,30 @@ let users = groupMem.map(u => u.jid)
           mentionedJid: users
         },
         quoted: m
+      }
+    ),
+    text || qz.text 
+  )
+  await caliph.relayWAMessage(msg)
+break
+case prefix+'ohidetag': 
+if (!m.isGroup) return m.reply('Perintah ini khusus didalam grup!')
+if (!isOwner) return m.reply('Perintah ini khusus admin grup!')
+let users = groupMem.map(u => u.jid)
+
+  let qz = m.quoted ? m.quoted : m
+  let c = m.quoted ? m.quoted : m.msg
+  let msg = caliph.cMod(
+    m.chat,
+    caliph.prepareMessageFromContent(
+      m.chat,
+      { [c.toJSON ? qz.mtype : mType.extendedText]: c.toJSON ? c.toJSON() : {
+        text: c || ''
+      } },
+      {
+        contextInfo: {
+          mentionedJid: users
+        },
       }
     ),
     text || qz.text 
