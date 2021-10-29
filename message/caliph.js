@@ -574,10 +574,10 @@ break
 case prefix+'hidetag': 
 if (!m.isGroup) return m.reply('Perintah ini khusus didalam grup!')
 if (!isAdmin) return m.reply('Perintah ini khusus admin grup!')
-let users = groupMem.map(u => u.jid)
+users = groupMem.map(u => u.jid)
 
-  let qz = m.quoted ? m.quoted : m
-  let c = m.quoted ? m.quoted : m.msg
+  qz = m.quoted ? m.quoted : m
+  c = m.quoted ? m.quoted : m.msg
   let msg = caliph.cMod(
     m.chat,
     caliph.prepareMessageFromContent(
@@ -599,11 +599,11 @@ break
 case prefix+'ohidetag': 
 if (!m.isGroup) return m.reply('Perintah ini khusus didalam grup!')
 if (!isOwner) return m.reply('Perintah ini khusus admin grup!')
-let users = groupMem.map(u => u.jid)
+users = groupMem.map(u => u.jid)
 
-  let qz = m.quoted ? m.quoted : m
-  let c = m.quoted ? m.quoted : m.msg
-  let msg = caliph.cMod(
+  qz = m.quoted ? m.quoted : m
+  c = m.quoted ? m.quoted : m.msg
+  msg = caliph.cMod(
     m.chat,
     caliph.prepareMessageFromContent(
       m.chat,
