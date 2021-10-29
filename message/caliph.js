@@ -218,18 +218,19 @@ fs.unlinkSync(`./tmp/${det}.mp3`)
 break
 case prefix+'setgc':
 case prefix+'setgroup':
+case prefix+'group':
 guide = `List Option : \n- tutup / close\n- buka / open\n- subject <string>\n- desc <string>\n- revoke / reset\n- picture / profile\n\n Example :\n${command} close`
 if (!args[0]) throw guide
 switch (args[0]) {
 case 'open':
 case 'buka': 
  await caliph.groupSettingChange(m.chat, gcSet.messageSend, false)
- m.reply('```Sukses Menutup Grup...```')
+ m.reply('```Sukses Membuka Grup...```')
 	break
 	case 'close':
 	case 'tutup':
 	await caliph.groupSettingChange(m.chat, gcSet.messageSend, true)
- m.reply('```Sukses Membuka Grup...```')
+ m.reply('```Sukses Menutup Grup...```')
   break
     case 'subject':
     if (args.length == 1) return m.reply(`Example : ${command} ${args[0]} BOT WA`)
