@@ -115,6 +115,7 @@ Other Menu
 - ${prefix}attp2 (teks)
 - ${prefix}attp3 (teks)
 - ${prefix}sticker (reply image/video)
+- ${prefix}shortlink (url)
 
 Search Menu
 - ${prefix}pinterest (query)
@@ -138,6 +139,7 @@ Random Menu
 - ${prefix}ppcouple
 - ${prefix}loli
 - ${prefix}waifu
+- ${prefix}neko
 - ${prefix}katabijak
 - ${prefix}dare
 - ${prefix}truth
@@ -323,6 +325,21 @@ if (!m.quoted.isAnimated) throw 'Reply Sticker Yang berbentuk gif!'
 m.reply('Mohon tunggu sebentar~')
 var url = await require('../lib/webp2mp4').webp2mp4(await m.quoted.download())
 caliph.sendMessage(m.chat, { url }, 'videoMessage', { caption: `Sukses~`, mimetype: 'video/gif', quoted: m })
+break
+case prefix+'shortlink':
+case prefix+'shorturl':
+if (!text) throw `linknya mana??`
+var { url } = (await getJson('https://clph.pw/create.php?url='+encodeURIComponent(text))).result
+response = `*SHORT URL*\n
+
+Original Url : \`\`\`${text}\`\`\`
+
+==================================
+
+Short Url : ${url}
+
+`.trim()
+m.reply(response)
 break
 case prefix+'tovideo':
 case prefix+'tovid':
