@@ -228,7 +228,7 @@ case 'buka':
 	break
 	case 'close':
 	case 'tutup':
-	await caliph.groupSettingChange(m.chat, gcSet.messageSend, false)
+	await caliph.groupSettingChange(m.chat, gcSet.messageSend, true)
  m.reply('```Sukses Membuka Grup...```')
   break
     case 'subject':
