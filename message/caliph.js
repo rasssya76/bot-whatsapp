@@ -18,7 +18,8 @@ let axios = require('axios')
 let brainly = require ('brainly-scraper')
 let ocr = require('../lib/ocr')
 let {
-MessageType: mType
+MessageType: mType,
+GroupSettingChange: gcSet
 } = require('@adiwajshing/baileys')
 let { sticker, addExif } = require('../lib/sticker')
 let antidelete = JSON.parse(fs.readFileSync('./database/chat/antidelete.json').toString())
@@ -214,6 +215,52 @@ await caliph.sendMessage(m.chat, { url: `./tmp/${det}.mp3` }, mType.audio, { quo
 fs.unlinkSync(media)
 fs.unlinkSync(`./tmp/${det}.mp3`)
 })
+break
+case prefix+'setgc':
+case prefix+'setgroup':
+guide = `List Option : \n- tutup / close\n- buka / open\n- subject <string>\n- desc <string>\n- revoke / reset\n- picture / profile\n\n Example :\n${command} close`
+if (!args[0]) throw guide
+switch (args[0]) {
+case 'open':
+case 'buka': 
+ await caliph.groupSettingChange(m.chat, gcSet.messageSend, false)
+ m.reply('```Sukses Menutup Grup...```')
+	break
+	case 'close':
+	case 'tutup':
+	await caliph.groupSettingChange(m.chat, gcSet.messageSend, false)
+ m.reply('```Sukses Membuka Grup...```')
+  break
+    case 'subject':
+    if (args.length == 1) return m.reply(`Example : ${command} ${args[0]} BOT WA`)
+    await caliph.groupUpdateSubject(m['chat'], args.slice(1).join(' '))
+    m.reply(``\`\`\Sukses Mengganti Nama Grup Menjadi : ${args.slice(1).join(' ')}`/`/`/`)
+     break
+     case 'revoke':
+     case 'reset':
+   await caliph.revokeInvite(m.chat)
+   m.reply(``\`\`\Sukses Mereset Undangan Grup ${groupMetadata.subject}\`\`\``)
+      break
+      case 'desc':
+      if (args.length == 1) return m.reply(`Example : ${command} ${args[0]} BOT WA`)
+      await caliph.groupUpdateDescription(m.chat, args.slice(1).join(' '))
+      m.reply(`\`\`\`Sukses merubah deskripsi grup ${groupMetadata.subject}\`\`\``)
+      break
+    case 'profile':
+     case 'picture':
+     case 'pp':
+	 q = m.quoted ? m.quoted : m
+    mime = (q.msg || q).mimetype || ''
+  if (!mime) return m.reply('Tidak ada foto')
+  if (!/image\/(jpe?g|png)/.test(mime)) return m.reply(`Mime ${mime} tidak support`)
+  ah = await q.download()
+  await caliph.updateProfilePicture(m.chat, ah)
+  caliph.sendMessage(m.chat, ah, mType.image, { quoted: m, caption: 'Sukses Mengganti Profile Grup...', fileLength: 999999999999999 })
+  break
+
+      default: 
+      m.reply(guide)
+      }
 break
 case prefix+'calc':
 caliph.updatePresence(m.chat, 'composing')
