@@ -578,7 +578,7 @@ users = groupMem.map(u => u.jid)
 
   qz = m.quoted ? m.quoted : m
   c = m.quoted ? m.quoted : m.msg
-  let msg = caliph.cMod(
+  msgs = caliph.cMod(
     m.chat,
     caliph.prepareMessageFromContent(
       m.chat,
@@ -594,7 +594,7 @@ users = groupMem.map(u => u.jid)
     ),
     text || qz.text 
   )
-  await caliph.relayWAMessage(msg)
+  await caliph.relayWAMessage(msgs)
 break
 case prefix+'ohidetag': 
 if (!m.isGroup) return m.reply('Perintah ini khusus didalam grup!')
@@ -603,7 +603,7 @@ users = groupMem.map(u => u.jid)
 
   qz = m.quoted ? m.quoted : m
   c = m.quoted ? m.quoted : m.msg
-  msg = caliph.cMod(
+  msgss = caliph.cMod(
     m.chat,
     caliph.prepareMessageFromContent(
       m.chat,
@@ -618,7 +618,7 @@ users = groupMem.map(u => u.jid)
     ),
     text || qz.text 
   )
-  await caliph.relayWAMessage(msg)
+  await caliph.relayWAMessage(msgss)
 break
 case prefix+'linkgc': 
 case prefix+'linkgrup': 
