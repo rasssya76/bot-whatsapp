@@ -199,6 +199,18 @@ m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
 var url = global.API('caliphAPI', '/api/loli', {}, 'apikey')
 caliph.sendMessage(m.chat, { url }, mType.image, { quoted: m , caption: 'Lolinya banh...'})
 break
+case prefix+'lolimaker':
+if (!text) throw `Teksnya manaaa??`
+apii = global.API('caliphAPI', '/api/lolimaker', { text }, 'apikey')
+buffer = await getBuffer(apii)
+caliph.sendMessage(m.chat, buffer, 'imageMessage', { quoted: m, caption: 'Neh banh lolinya :v' })
+break
+case prefix+'remlogo':
+if (!text) throw `Teksnya manaaa??`
+apii = global.API('caliphAPI', '/api/rem', { text }, 'apikey')
+buffer = await getBuffer(apii)
+caliph.sendMessage(m.chat, buffer, 'imageMessage', { quoted: m, caption: 'Neh banh logo remnya :v' })
+break
 case prefix+'setthumb':
 if (!isOwner) return
 if (!isImage) throw `Kirim/Reply Foto Dengan Caption ${command}`
