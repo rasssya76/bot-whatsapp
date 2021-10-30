@@ -211,6 +211,21 @@ apii = global.API('caliphAPI', '/api/rem', { text }, 'apikey')
 buffer = await getBuffer(apii)
 caliph.sendMessage(m.chat, buffer, 'imageMessage', { quoted: m, caption: 'Neh banh logo remnya :v' })
 break
+case prefix+'kanekilogo':
+case prefix+'kanekimaker':
+if (!text) throw `Teksnya manaaa??`
+apii = global.API('caliphAPI', '/api/kaneki', { text }, 'apikey')
+buffer = await getBuffer(apii)
+caliph.sendMessage(m.chat, buffer, 'imageMessage', { quoted: m, caption: 'Neh banh logo kanekinya :v' })
+break
+case prefix+'nekologo':
+case prefix+'nekomaker':
+if (!text) throw `Teksnya manaaa??\nContoh : ${command} caliph|ganz`
+var [tek, tek2] = text.split('|')
+apii = global.API('caliphAPI', '/api/kaneki', { text: tek, tek2 }, 'apikey')
+buffer = await getBuffer(apii)
+caliph.sendMessage(m.chat, buffer, 'imageMessage', { quoted: m, caption: 'Neh banh logo kanekinya :v' })
+break
 case prefix+'setthumb':
 if (!isOwner) return
 if (!isImage) throw `Kirim/Reply Foto Dengan Caption ${command}`
