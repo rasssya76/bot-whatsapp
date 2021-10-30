@@ -532,7 +532,6 @@ case prefix+'ttp':
   break
   case prefix+'ttp3':
   if (!args[0]) return m.reply('Teksnya?')
-  https://api.vhtear.com/textmaker?text=VEZZA&warna=purple&apikey=d4b42fb2f39b4a5ea769d831b7617c67
    listwarna = ["red", "green", "blue", "purple", "cyan", "yellow", "white"]
    warna = listwarna[Math.floor(Math.random() * listwarna.length)]
   caliph.sendSticker(m.chat, global.API('vh', '/textmaker', { text, warna }, 'APIKEY'), m, { packname, author })
