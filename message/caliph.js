@@ -32,7 +32,7 @@ let moment = require('moment')
 module.exports = async function connect(caliph, m) {
 try {
 if (m.isBaileys) return
-let groupMetadata = m.isGroup ? await caliph.groupMetadata(m.chat) : ''
+let groupMetadata = m.isGroup ? await caliph.groupMetadata(m.chat).catch(e => {}) : ''
 let groupMem = m.isGroup ? groupMetadata.participants : ''
 let groupAdm = m.isGroup ? groupMem.filter(a => a.isAdmin) : []
 let isBotAdm = m.isGroup ? groupMem.find(a => a.jid == caliph.user.jid).isAdmin : false
