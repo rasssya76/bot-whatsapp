@@ -17,6 +17,7 @@ async function mulai() {
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
 let caliph = new WAPI()
 caliph.browserDescription = Browsers.appropriate('Desktop')
+caliph.browserDescription[0] = "Bot WhatsApp By @Caliph91"
 caliph.logger.level = 'warn'
 console.log(color(figlet.textSync('Base Wabot', {
 		font: 'Standard',
