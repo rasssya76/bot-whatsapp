@@ -222,9 +222,9 @@ case prefix+'nekologo':
 case prefix+'nekomaker':
 if (!text) throw `Teksnya manaaa??\nContoh : ${command} caliph|ganz`
 var [tek, tek2] = text.split('|')
-apii = global.API('caliphAPI', '/api/kaneki', { text: tek, tek2 }, 'apikey')
+apii = global.API('caliphAPI', '/api/girlneko', { text: tek, tek2 }, 'apikey')
 buffer = await getBuffer(apii)
-caliph.sendMessage(m.chat, buffer, 'imageMessage', { quoted: m, caption: 'Neh banh logo kanekinya :v' })
+caliph.sendMessage(m.chat, buffer, 'imageMessage', { quoted: m, caption: 'Neh banh logo nekonya :v' })
 break
 case prefix+'setthumb':
 if (!isOwner) return
