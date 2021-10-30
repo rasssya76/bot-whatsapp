@@ -148,6 +148,11 @@ Random Menu
 - ${prefix}dadu 
 - ${prefix}lolivid
 
+- $prefix}lolimaker (teks)
+- $prefix}nekologo (teks|teks2)
+- ${prefix}sadboy (teks|teks2)
+- ${prefix}remlogo (teks)
+- ${prefix}kanekilogo (teks|teks2)
 `.trim()
 var img = fs.readFileSync(global.thumb)
 caliph.sendMessage(m.chat, img, mType.image, { quoted: freply('Rikka-Botz WhatsApp', img), caption: menu })
