@@ -36,6 +36,7 @@ caliph.sendMessage(json.jid, { url: canvas }, 'imageMessage', { caption, context
 break
 case 'remove': 
 if (!left.includes(json.jid)) return
+for (let i of json.participants) {
 getpp = await caliph.getProfilePicture(i).catch(e => 'https://storage.caliph71.xyz/img/404.jpg')
 gcicon = await caliph.getProfilePicture(json.jid).catch(e => 'https://storage.caliph71.xyz/img/404.jpg')
 caption = toformat(mess.group.welcome, i)
