@@ -32,13 +32,13 @@ console.log('Scan kode qr ini untuk menjalankan bot')
 })
 fs.existsSync(authfile) && caliph.loadAuthInfo(authfile)
 	caliph.on('connecting', () => {
-		console.log(color('[Caliph71]', 'cyan'), color('Connecting...', 'yellow'))
+		console.log(color('[CLIENT]', 'cyan'), color('Connecting...', 'yellow'))
 	})
 	caliph.on('close', () => {
-		console.log(color('[Caliph71]', 'cyan'), color('Reconnecting....', 'yellow'))
+		console.log(color('[CLIENT]', 'cyan'), color('Reconnecting....', 'yellow'))
 	})
 	caliph.on('open', (ye) => {
-		console.log(color('[Caliph71]', 'cyan'), color('Connected...', 'green'))
+		console.log(color('[CLIENT]', 'cyan'), color('Connected...', 'green'))
 	})
 	await caliph.connect().then(async v => {
         global.server ? require('./server')(caliph) : ''
