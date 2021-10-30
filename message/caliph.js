@@ -218,6 +218,13 @@ apii = global.API('caliphAPI', '/api/kaneki', { text }, 'apikey')
 buffer = await getBuffer(apii)
 caliph.sendMessage(m.chat, buffer, 'imageMessage', { quoted: m, caption: 'Neh banh logo kanekinya :v' })
 break
+case prefix+'sadboy':
+if (!text) throw `Teksnya manaaa??\nContoh : ${command} caliph|ganz`
+var [tek, tek2] = text.split('|')
+apii = global.API('caliphAPI', '/api/sadboy', { text: tek, text2: tek2 }, 'apikey')
+buffer = await getBuffer(apii)
+caliph.sendMessage(m.chat, buffer, 'imageMessage', { quoted: m, caption: 'Jgn ngesad mulu lh bng :(' })
+break
 case prefix+'nekologo':
 case prefix+'nekomaker':
 if (!text) throw `Teksnya manaaa??\nContoh : ${command} caliph|ganz`
