@@ -111,6 +111,8 @@ Other Menu
 - ${prefix}tahta (teks)
 - ${prefix}tahta2 (teks)
 - ${prefix}ttp (teks)
+- ${prefix}ttp2 (teks)
+- ${prefix}ttp3 (teks)
 - ${prefix}attp (teks)
 - ${prefix}attp2 (teks)
 - ${prefix}attp3 (teks)
@@ -524,16 +526,27 @@ case prefix+'ttp':
   if (!args[0]) return m.reply('Teksnya?')
   caliph.sendSticker(m.chat, global.API('xteam', '/ttp', { text, file: '' }, 'APIKEY'), m, { packname, author })
   break
+  case prefix+'ttp2':
+  if (!args[0]) return m.reply('Teksnya?')
+  caliph.sendSticker(m.chat, global.API('lol', '/api/ttp', { text }, 'APIKEY'), m, { packname, author })
+  break
+  case prefix+'ttp3':
+  if (!args[0]) return m.reply('Teksnya?')
+  https://api.vhtear.com/textmaker?text=VEZZA&warna=purple&apikey=d4b42fb2f39b4a5ea769d831b7617c67
+   listwarna = ["red", "green", "blue", "purple", "cyan", "yellow", "white"]
+   warna = listwarna[Math.floor(Math.random() * listwarna.length)]
+  caliph.sendSticker(m.chat, global.API('vh', '/textmaker', { text, warna }, 'APIKEY'), m, { packname, author })
+  break
   case prefix+'attp':
   if (!args[0]) return m.reply('Teksnya?')
   buffer = await getBuffer(global.API('lol', '/api/attp', { text }, 'apikey'))
-  webp = await addExif(buffer, packname, author, ["😀", "😆", "🙂"])
+  webp = await addExif(buffer, packname, author)
   caliph.sendMessage(m.chat, webp, mType.sticker, { quoted: m })
   break
   case prefix+'attp2':
   if (!args[0]) return m.reply('Teksnya?')
   buffer = await getBuffer(global.API('xteam', '/attp', { text, file:''}, 'APIKEY'))
-  webp = await addExif(buffer, packname, author, ["😀", "😆", "🙂"])
+  webp = await addExif(buffer, packname, author)
   caliph.sendMessage(m.chat, webp, mType.sticker, { quoted: m })
   break 
   case prefix+'attp3':
