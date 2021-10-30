@@ -528,13 +528,13 @@ case prefix+'ttp':
   break
   case prefix+'ttp2':
   if (!args[0]) return m.reply('Teksnya?')
-  caliph.sendSticker(m.chat, global.API('lol', '/api/ttp', { text }, 'APIKEY'), m, { packname, author })
+  caliph.sendSticker(m.chat, global.API('lol', '/api/ttp', { text }, 'apikey'), m, { packname, author })
   break
   case prefix+'ttp3':
   if (!args[0]) return m.reply('Teksnya?')
    listwarna = ["red", "green", "blue", "purple", "cyan", "yellow", "white"]
    warna = listwarna[Math.floor(Math.random() * listwarna.length)]
-  caliph.sendSticker(m.chat, global.API('vh', '/textmaker', { text, warna }, 'APIKEY'), m, { packname, author })
+  caliph.sendSticker(m.chat, global.API('vh', '/textmaker', { text, warna }, 'apikey'), m, { packname, author })
   break
   case prefix+'attp':
   if (!args[0]) return m.reply('Teksnya?')
