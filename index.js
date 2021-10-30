@@ -42,6 +42,7 @@ fs.existsSync(authfile) && caliph.loadAuthInfo(authfile)
                 fs.unlinkSync(authfile)
             }
             caliph.clearAuthInfo()
+	    process.exit()
         }
 	})
 	caliph.on('open', (ye) => {
