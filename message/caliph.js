@@ -17,6 +17,7 @@ let tahta2 = require('../lib/tahta2')
 let axios = require('axios')
 let brainly = require ('brainly-scraper')
 let ocr = require('../lib/ocr')
+let fetch = require('node-fetch')
 let {
 MessageType: mType,
 GroupSettingChange: gcSet
