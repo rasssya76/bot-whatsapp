@@ -820,7 +820,7 @@ if (!m.isGroup) return m.reply('Perintah ini khusus didalam grup!')
 if (!isAdmin) return m.reply('Perintah ini khusus admin grup!')
 if (!isBotAdm) return m.reply('Jadikan bot sebagai admin terlebih dahulu!')
 isQuod = m.quoted ? [m.quoted.sender] : text.split(',').map(v => v.replace(/[^0-9]/gi, '') +'@s.whatsapp.net')
-if (!isQuod[0]) return m.reply(`Siapa Yang Mau Di Add?`)
+if (isQuod.length == 0) return m.reply(`Siapa Yang Mau Di Add?`)
 _participants = groupMem.map(user => user.jid)
   users = (await Promise.all(
     isQuod
