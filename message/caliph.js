@@ -42,9 +42,9 @@ let budy = (typeof m.text == 'string' ? m.text : '')
 let body = budy
 let isVideo = (m.quoted ? m.quoted.mtype : m.mtype) == mType.video
 let isImage = (m.quoted ? m.quoted.mtype : m.mtype) == mType.image
-let args = body.trim().split(/ +/).slice(1)
+let args = global.prefix == false ? body.trim().split(/ +/) : body.trim().split(/ +/).slice(1)
 let command = (budy.toLowerCase().split(/ +/)[0] || '')
-let prefix = /^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?@#$%^&.\/\\©^]/.test(command) ? command.match(/^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?@#$%^&.\/\\©^]/gi) : global.prefix
+let prefix = global.prefix == false ? '' : /^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?@#$%^&.\/\\©^]/.test(command) ? command.match(/^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?@#$%^&.\/\\©^]/gi) : global.prefix
 let isCmd = body.startsWith(prefix)
 let { ffmpeg } = require('../lib/converter')
 let isOwner = global.owner.includes(m.sender.split('@')[0]) || m.key.fromMe
@@ -149,8 +149,9 @@ Random Menu
 - ${prefix}dadu 
 - ${prefix}lolivid
 
-- $prefix}lolimaker (teks)
-- $prefix}nekologo (teks|teks2)
+Maker Menu
+- ${prefix}lolimaker (teks)
+- ${prefix}nekologo (teks|teks2)
 - ${prefix}sadboy (teks|teks2)
 - ${prefix}remlogo (teks)
 - ${prefix}kanekilogo (teks|teks2)
@@ -178,6 +179,17 @@ m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
 var waifu = global.API('https://api.waifu.pics', '/sfw/waifu')
 var { url } = await getJson(waifu)
 caliph.sendMessage(m.chat, { url }, mType.image, { quoted: m , caption: 'Larii Ada Wibu...'})
+break
+case prefix+'nopref':
+if (!isOwner) return
+if (!text) return 
+if (/on|enable/.test(args[0])) {
+global.prefix = false 
+m.reply('```MODE : NO PREFIX```')
+} else if (/off|disable/.test(args[0])) {
+global.prefix = '-'
+m.reply('```MODE : MULTI PREFIX```')
+}
 break
 case prefix+'neko':
 m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
