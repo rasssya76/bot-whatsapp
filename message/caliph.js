@@ -820,7 +820,34 @@ if (!isAdmin) return m.reply('Perintah ini khusus admin grup!')
 if (!isBotAdm) return m.reply('Jadikan bot sebagai admin terlebih dahulu!')
 isQuod = m.quoted ? [m.quoted.sender] : text.split(',').map(v => v.replace(/[^0-9]/gi, '') +'@s.whatsapp.net')
 if (!isQuod[0]) return m.reply(`Siapa Yang Mau Di Add?`)
-caliph.groupAdd(m.chat, isQuod)
+_participants = groupMem.map(user => user.jid)
+  users = (await Promise.all(
+    isQuod
+      .map(v => v.replace(/[^0-9]/g, ''))
+      .filter(v => v.length > 4 && v.length < 20 && !_participants.includes(v + '@s.whatsapp.net'))
+      .map(async v => [
+        v,
+        await caliph.isOnWhatsApp(v + '@s.whatsapp.net')
+      ])
+  )).filter(v => v[1]).map(v => v[0] + '@c.us')
+  response = await caliph.groupAdd(m.chat, users)
+  pp = await caliph.getProfilePicture(m.chat).catch(_ => `https://storage.caliph71.xyz/img/404.jpg`)
+  jpegThumbnail = pp ? await (await fetch(pp)).buffer() : false
+  for (let user of response.participants.filter(user => Object.values(user)[0].code == 403)) {
+    var [[jid, {
+      invite_code,
+      invite_code_exp
+    }]] = Object.entries(user)
+    teks = `Mengundang @${jid.split('@')[0]} menggunakan undangan grup...`
+    m.reply(teks, null, {
+      contextInfo: {
+        mentionedJid: caliph.parseMention(teks)
+      }
+    })
+    await caliph.sendGroupV4Invite(m.chat, jid, invite_code, invite_code_exp, false, 'Invitation to join my WhatsApp group', jpegThumbnail ? {
+      jpegThumbnail
+    } : {})
+  }
 break
 case prefix+'owner': 
 case prefix+'creator':
