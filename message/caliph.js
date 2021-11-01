@@ -18,6 +18,7 @@ let axios = require('axios')
 let brainly = require ('brainly-scraper')
 let ocr = require('../lib/ocr')
 let fetch = require('node-fetch')
+let bdr = require("rumus-bdr")
 let {
 MessageType: mType,
 GroupSettingChange: gcSet
