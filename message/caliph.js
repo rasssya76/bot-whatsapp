@@ -388,9 +388,10 @@ Short Url : \`\`\`${url}\`\`\`
 
 ==================================
 
-Delete URL : \`\`\`${del}\`\`\`
+Delete URL : *Udh Dikirim Di Private Chat :)*
 `.trim()
 m.reply(response)
+caliph.reply(m.sender, `*DELETE URL*\n\n\`\`\`${del}\`\`\`\n\nNote : Jika Url Dihapus, Maka Short Link Anda Tidak Bisa Di Akses..`, m)
 break
 case prefix+'tovideo':
 case prefix+'tovid':
