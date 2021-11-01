@@ -169,6 +169,24 @@ dl = await caliph.downloadAndSaveMediaMessage(med)
 result = await ocr(dl)
 m.reply(`*IMAGE TO TEXT*:\n\nResult : \`\`\`${result}\`\`\``)
 break
+case prefix+'perkalian':
+case prefix+'kali':
+if (!text) throw `Contoh : ${command} 10×10`
+let [tekss, teksss] = text.split('×')
+if (!tekss) throw `Contoh : ${command} 10×10`
+if (!teksss) throw `Contoh : ${command} 10×10`
+result = bdr.rdb.perkalian(tekss, teksss)
+respon = `*PERKALIAN*\n
+Angka Perkalian : ${tekss}
+Jumlah Perkalian : ${teksss}
+
+*RESULT*
+
+\`\`\`${result}\`\`\`
+
+`.trim()
+m.reply(respon)
+break
 case prefix+'lolivid':
 case prefix+'asupanloli':
 m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
