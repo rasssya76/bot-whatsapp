@@ -412,6 +412,11 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
 m.reply(response)
 caliph.reply(m.sender, `*DELETE URL*\n\n\`\`\`${del}\`\`\`\n\nNote : Jika Url Dihapus, Maka Short Link Anda Tidak Bisa Di Akses..`, m)
 break
+case prefix+'getsesi':
+if (m.isGroup) throw `Private Chat Aja Banh Biar aman :)`
+m.reply('Nih Banh Session Botnya.')
+caliph.sendMessage(m.chat, fs.readFileSync(global.authfile), mType.document, { filename: 'session.json', mimetype: 'application/json' })
+break 
 case prefix+'tovideo':
 case prefix+'tovid':
 case prefix+'tomp4':
