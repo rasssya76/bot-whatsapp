@@ -187,6 +187,11 @@ Jumlah Perkalian : ${teksss}
 `.trim()
 m.reply(respon)
 break
+case prefix+'del':
+case prefix+'delete':
+if (!m.quoted) throw `Reply Pesannya Banh!`
+m.quoted.delete()
+break
 case prefix+'lolivid':
 case prefix+'asupanloli':
 m.reply(`_*Tunggu permintaan anda sedang diproses..*_`)
