@@ -45,7 +45,7 @@ let isVideo = (m.quoted ? m.quoted.mtype : m.mtype) == mType.video
 let isImage = (m.quoted ? m.quoted.mtype : m.mtype) == mType.image
 let args = body.trim().split(/ +/).slice(1)
 let command = (budy.toLowerCase().split(/ +/)[0] || '')
-let prefix = /^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?@#$%^&.\/\\©^]/.test(command) ? command.match(/^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?@#$%^&.\/\\©^]/gi) : global.prefix
+let prefix = /^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?#$%^&.\/\\©^]/.test(command) ? command.match(/^[°•π÷×¶∆£¢€¥®™✓=|~`,*zxcv!?#$%^&.\/\\©^]/gi) : global.prefix
 let isCmd = body.startsWith(prefix)
 let { ffmpeg } = require('../lib/converter')
 let isOwner = global.owner.includes(m.sender.split('@')[0]) || m.key.fromMe
