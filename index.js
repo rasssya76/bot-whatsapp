@@ -12,7 +12,7 @@ const WAPI = simple.WAConnection(WAConnection)
 let fs = require('fs')
 let os = require('os')
 let figlet = require('figlet')
-let authfile = './session.json'
+global.authfile = './session.json'
 async function mulai() {
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
 let caliph = new WAPI()
