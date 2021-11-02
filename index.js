@@ -40,7 +40,7 @@ fs.existsSync(authfile) && caliph.loadAuthInfo(authfile)
 	caliph.on('close', async ({ reason, isReconnecting }) => {
 	console.log(color('[CLIENT]', 'cyan'), color(`Because ${reason} reconnecting : ${isReconnecting}`, 'yellow'))
 	if (!isReconnecting && reason == 'invalid_session') {
-           console.log(color('[CLIENT]', 'cyan'), color('Sesion Invalid, deleting session', 'yellow'))
+           console.log(color('[CLIENT]', 'cyan'), color('Sesion Invalid, deleting session', 'rex'))
             if (fs.existsSync(authfile)) {
                 fs.unlinkSync(authfile)
             }
@@ -51,10 +51,10 @@ fs.existsSync(authfile) && caliph.loadAuthInfo(authfile)
 	caliph.on('open', (ye) => {
 		console.log(color('[CLIENT]', 'cyan'), color('Connected...', 'green'))
 	})
-	await caliph.connect().then(async v => {
-        console.log(color(`[CLIENT]`, 'cyan'), color('WhatsApp Web Running On Version :'), caliph.version.join('.'))
+	await caliph.connect().then(async v => { 
+        console.log(color(`[CLIENT]`, 'cyan'), color('WhatsApp Web Running On Version :'), color(caliph.version.join('.'), 'yellow'))
         global.server ? require('./server')(caliph) : ''
-	console.log(`Nama Bot : ${caliph.user.name}\nID Bot : ${awesome('+'+caliph.user.jid.split('@')[0]).getNumber('international')}\nMode : ${selfmode ? 'Self Mode' : 'Public Mode'}\nHostname : ${os.hostname()}`)
+	// console.log(`Nama Bot : ${caliph.user.name}\nID Bot : ${awesome('+'+caliph.user.jid.split('@')[0]).getNumber('international')}\nMode : ${selfmode ? 'Self Mode' : 'Public Mode'}\nHostname : ${os.hostname()}`)
 		if (!fs.existsSync(authfile)) fs.writeFileSync(authfile, JSON.stringify(caliph.base64EncodedAuthInfo(), null, '\t'))
 	owner.map(a => caliph.reply(a + "@c.us", 'Bot Started.....'))
 		})
