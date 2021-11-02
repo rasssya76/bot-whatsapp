@@ -190,6 +190,7 @@ break
 case prefix+'del':
 case prefix+'delete':
 if (!m.quoted) throw `Reply Pesannya Banh!`
+if (!m.quoted.fromMe) throw `Gbisa hpus pesan org lain!`
 m.quoted.delete()
 break
 case prefix+'lolivid':
