@@ -417,7 +417,7 @@ if (m.isGroup) throw `Private Chat Aja Banh Biar aman :)`
 if (!isOwner) throw `Affkh kmu owner?`
 await m.reply('Nih Banh Session Botnya :)')
 baffer = fs.readFileSync(global.authfile)
-caliph.sendMessage(m.chat, baffer, mType.document, { filename: 'session.json', mimetype: 'application/json' })
+await caliph.sendMessage(m.chat, baffer, mType.document, { filename: 'session.json', mimetype: 'application/json' })
 await caliph.reply(m.chat, 'Nih versi teksnya...')
 caliph.reply(m.chat, baffer.toString())
 break 
