@@ -13,12 +13,21 @@
 <a href="https://javascript.com"><img src="https://img.shields.io/badge/Made%20With-javascript-cyan.svg?style=for-the-badge&logo=javascript"/><a/>
 </p>
 
-# Cara Penginstalan
+## Cara Penginstalan
 
-* Termux
-```
-> pkg install git
+# Termux
+```bash
+> pkg install git -y
 > git clone https://github.com/caliph91/bot-whatsapp
+> cd bot-whatsapp
+> bash install.sh
+> node index
+```
+
+# Ubuntu
+```bash
+> apt install git -y
+> git clone https://github.con/caliph91/bot-whatsapp
 > cd bot-whatsapp
 > bash install.sh
 > node index
