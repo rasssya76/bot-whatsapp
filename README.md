@@ -46,7 +46,7 @@
 * Any text editor
 
 ## 🧾 Installing the Tesseract
-* Download the file [here](https://s.id/vftesseract).
+* Download the file [here](https://clph.pw/tesseract).
 * After that, run downloaded file as Administrator.
 * Complete the installation.
 * Run Command Prompt as Administrator.
