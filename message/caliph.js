@@ -39,7 +39,7 @@ let groupMem = m.isGroup ? groupMetadata.participants : ''
 let groupAdm = m.isGroup ? groupMem.filter(a => a.isAdmin) : []
 let isBotAdm = m.isGroup ? groupMem.find(a => a.jid == caliph.user.jid).isAdmin : false
 let isAdmin = m.isGroup ? groupMem.find(a => a.jid == m.sender).isAdmin : false
-let budy = (typeof m.text == 'string' ? m.text : '_')
+let budy = (typeof m.text == 'string' ? m.text : '')
 let body = budy
 let isVideo = (m.quoted ? m.quoted.mtype : m.mtype) == mType.video
 let isImage = (m.quoted ? m.quoted.mtype : m.mtype) == mType.image
@@ -58,7 +58,7 @@ if (m.mentionedJid.includes(caliph.user.jid)) {
 caliph.sendMessage(m.chat, { url: 'https://i.ibb.co/sFbdXfj/6984d8315885.webp' }, 'stickerMessage', { quoted: m, fileLength: 99999999999999 })
 } 
 
-if (m.text && m.text.toLowerCase().includes('assalamualaikum')) {
+if (body.toLowerCase().includes('assalamualaikum')) {
 caliph.reply(m.chat, `Waalaikumsalam kak ${caliph.getName(m.sender)}`, m)
 }
 /* Fake Reply */
