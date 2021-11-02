@@ -20,7 +20,7 @@ let caliph = new WAPI()
 caliph.browserDescription = Browsers.appropriate('Desktop')
 caliph.browserDescription[0] = "Bot WhatsApp By @Caliph91"
 var { currentVersion } = await fetch.json(`https://web.whatsapp.com/check-update?version=1&platform=web`)
-caliph.version = currentVersion || [2, 2140, 12]
+caliph.version = currentVersion.split('.').map(a => parseInt(a)) || [2, 2140, 12]
 caliph.logger.level = 'warn'
 console.log(color(figlet.textSync('Base Wabot', {
 		font: 'Standard',
@@ -52,7 +52,7 @@ fs.existsSync(authfile) && caliph.loadAuthInfo(authfile)
 		console.log(color('[CLIENT]', 'cyan'), color('Connected...', 'green'))
 	})
 	await caliph.connect().then(async v => {
-        console.log(color(`[CLIENT]`, 'cyan'), color('WhatsApp Web Running On Version :'), caliph.version)
+        console.log(color(`[CLIENT]`, 'cyan'), color('WhatsApp Web Running On Version :'), caliph.version.join('.'))
         global.server ? require('./server')(caliph) : ''
 	console.log(`Nama Bot : ${caliph.user.name}\nID Bot : ${awesome('+'+caliph.user.jid.split('@')[0]).getNumber('international')}\nMode : ${selfmode ? 'Self Mode' : 'Public Mode'}\nHostname : ${os.hostname()}`)
 		if (!fs.existsSync(authfile)) fs.writeFileSync(authfile, JSON.stringify(caliph.base64EncodedAuthInfo(), null, '\t'))
