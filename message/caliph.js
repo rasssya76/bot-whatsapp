@@ -909,7 +909,7 @@ if (s) m.reply(util.format(s), null, { detectLinks: false })
 })
 break
 default: 
-//if (isCmd) m.reply(`Command *${command}* not found`)
+if (isCmd && command !== prefix) m.reply(`Command *${command}* not found`)
 }
 
 } catch (e) {
