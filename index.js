@@ -64,6 +64,8 @@ fs.existsSync(authfile) && caliph.loadAuthInfo(authfile)
 	})
 	caliph.on('CB:action,,battery', json => {
       caliph.battery = Object.fromEntries(Object.entries(json[2][0][1]).map(v => [v[0], eval(v[1])]))
+      console.log(color(`[CLIENT]`, 'cyan'), color('Battery Updated!', 'yellow'))
+      console.log(caliph.battery)
       })
       caliph.on('message-delete', async (m) => {
       require('./message/antidelete')(caliph, m)
