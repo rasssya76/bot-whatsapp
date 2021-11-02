@@ -86,6 +86,11 @@ Author : @caliph91
 Lib : Baileys
 Battery : ${caliph.battery ? caliph.battery.value +'%' : 'Belum kedetect'} ${caliph.battery ? caliph.battery.live ? '🔌 Charging...' : '⚡ Discharging' : ''}
 
+Main Menu 
+- ${prefix}blocklist
+- ${prefix}ping
+- ${prefix}owner 
+
 Group Menu
 - ${prefix}kick @tag/reply message
 - ${prefix}add 628×××××/reply message
@@ -168,6 +173,17 @@ med = m.quoted ? m.quoted.fakeObj : m
 dl = await caliph.downloadAndSaveMediaMessage(med)
 result = await ocr(dl)
 m.reply(`*IMAGE TO TEXT*:\n\nResult : \`\`\`${result}\`\`\``)
+break
+case prefix+'listblock':
+case prefix+'blocklist':
+blok = caliph.blocklist.map(a => a.split('@')[0] + '@s.whatsapp.net')
+tex = 'Daftar Kontak Yang Diblokir :\n\n'
+nan = 0
+for (let i of blok) {
+nan += 1
+tex += `${nan}. @${i.split('@')[0]}\n`
+}
+caliph.sendMessage(m.chat, tex, mType.text, { quoted: m, contextInfo : { mentionedJid: blok }})
 break
 case prefix+'perkalian':
 case prefix+'kali':
