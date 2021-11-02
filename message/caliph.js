@@ -39,7 +39,7 @@ let groupMem = m.isGroup ? groupMetadata.participants : ''
 let groupAdm = m.isGroup ? groupMem.filter(a => a.isAdmin) : []
 let isBotAdm = m.isGroup ? groupMem.find(a => a.jid == caliph.user.jid).isAdmin : false
 let isAdmin = m.isGroup ? groupMem.find(a => a.jid == m.sender).isAdmin : false
-let budy = (typeof m.text == 'string' ? m.text : false)
+let budy = (typeof m.text == 'string' ? m.text : '_')
 let body = budy
 let isVideo = (m.quoted ? m.quoted.mtype : m.mtype) == mType.video
 let isImage = (m.quoted ? m.quoted.mtype : m.mtype) == mType.image
