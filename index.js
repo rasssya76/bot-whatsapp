@@ -52,7 +52,7 @@ fs.existsSync(authfile) && caliph.loadAuthInfo(authfile)
 	await caliph.connect().then(async v => {
         global.server ? require('./server')(caliph) : ''
 	console.log(`Nama Bot : ${caliph.user.name}\nID Bot : ${awesome('+'+caliph.user.jid.split('@')[0]).getNumber('international')}\nMode : ${selfmode ? 'Self Mode' : 'Public Mode'}\nHostname : ${os.hostname()}`)
-		fs.writeFileSync(authfile, JSON.stringify(caliph.base64EncodedAuthInfo(), null, '\t'))
+		if (!fs.existsSync(authfile)) fs.writeFileSync(authfile, JSON.stringify(caliph.base64EncodedAuthInfo(), null, '\t'))
 	owner.map(a => caliph.reply(a + "@c.us", 'Bot Started.....'))
 		})
     caliph.on('CB:action,,call', id => {
