@@ -18,6 +18,7 @@ global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.
 let caliph = new WAPI()
 caliph.browserDescription = Browsers.appropriate('Desktop')
 caliph.browserDescription[0] = "Bot WhatsApp By @Caliph91"
+caliph.version = [2, 2126, 14]
 caliph.logger.level = 'warn'
 console.log(color(figlet.textSync('Base Wabot', {
 		font: 'Standard',
