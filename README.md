@@ -18,7 +18,8 @@
 
 # Cara Penginstalan
 
-# Termux
+#
+* Termux
 ```bash
 > pkg install git -y
 > git clone https://github.com/caliph91/bot-whatsapp
@@ -27,7 +28,7 @@
 > node index
 ```
 
-# Ubuntu
+* Ubuntu
 ```bash
 > apt install git -y
 > git clone https://github.con/caliph91/bot-whatsapp
