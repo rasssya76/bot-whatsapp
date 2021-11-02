@@ -416,8 +416,18 @@ case prefix+'getsesi':
 if (m.isGroup) throw `Private Chat Aja Banh Biar aman :)`
 if (!isOwner) throw `Affkh kmu owner?`
 await m.reply('Nih Banh Session Botnya :)')
-caliph.sendMessage(m.chat, fs.readFileSync(global.authfile), mType.document, { filename: 'session.json', mimetype: 'application/json' })
+baffer = fs.readFileSync(global.authfile)
+caliph.sendMessage(m.chat, , mType.document, { filename: 'session.json', mimetype: 'application/json' })
+await caliph.reply(m.chat, 'Nih versi teksnya...')
+caliph.reply(m.chat, baffer.toString())
 break 
+case prefix+'base64':
+qts = m.quoted ? m.quoted.text : text
+if (!qts) throw `Teksnya Mana banh?`
+str = Buffer.from(qts, 'utf-8')
+await m.reply('Nih banh..')
+m.reply(str.toString('base64'))
+break
 case prefix+'tovideo':
 case prefix+'tovid':
 case prefix+'tomp4':
