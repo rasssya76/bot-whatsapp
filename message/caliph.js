@@ -414,7 +414,8 @@ caliph.reply(m.sender, `*DELETE URL*\n\n\`\`\`${del}\`\`\`\n\nNote : Jika Url Di
 break
 case prefix+'getsesi':
 if (m.isGroup) throw `Private Chat Aja Banh Biar aman :)`
-m.reply('Nih Banh Session Botnya.')
+if (!isOwner) throw `Affkh kmu owner?`
+await m.reply('Nih Banh Session Botnya :)')
 caliph.sendMessage(m.chat, fs.readFileSync(global.authfile), mType.document, { filename: 'session.json', mimetype: 'application/json' })
 break 
 case prefix+'tovideo':
