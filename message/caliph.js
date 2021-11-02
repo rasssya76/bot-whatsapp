@@ -58,6 +58,9 @@ if (m.mentionedJid.includes(caliph.user.jid)) {
 caliph.sendMessage(m.chat, { url: 'https://i.ibb.co/sFbdXfj/6984d8315885.webp' }, 'stickerMessage', { quoted: m, fileLength: 99999999999999 })
 } 
 
+if (m.text.includes('assalamualaikum')) {
+caliph.reply(m.chat, `Waalaikumsalam kak ${caliph.getName(m.sender)}`, m)
+}
 /* Fake Reply */
 function freply(texts = fakereplyt, thumbnail = Buffer.alloc(0)) {
 return {key:{ fromMe:false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: {
