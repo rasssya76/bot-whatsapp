@@ -4,7 +4,7 @@ global.owner = ['6281515589573', '6281515589573']
 global.autoread = false
 global.selfmode = false
 global.thumb = './thumb/itsuki.jpg'
-global.fakereplyt = 'Rikka-Botz WhatsApp'
+global.fakereplyt = 'self-bot-WhatsApp'
 global.mess = {
 group : {
 welcome : `Welcome @user\n\nSelamat datang di grup @subject`,
