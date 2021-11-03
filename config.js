@@ -1,6 +1,6 @@
 let fs = require('fs')
 let chalk = require('chalk')
-global.owner = ['380944182435', '436504463151111']
+global.owner = ['6281515589573', '6281515589573']
 global.autoread = false
 global.selfmode = false
 global.thumb = './thumb/itsuki.jpg'
@@ -17,8 +17,8 @@ success: 'Sukses...'
 }
 global.server = false
 global.prefix = '🐤'
-global.author = '@caliph91_'
-global.packname = 'WhatsApp Bot'
+global.author = '@RAMAganz'
+global.packname = 'Sefl_Bot'
 
 
 // LIST APIKEY
@@ -36,13 +36,13 @@ global.APIs = { // API Prefix
 }
 
 global.APIKeys = { // APIKey Here
-   'http://api.vhtear.com': 'YOUR-APIKEY',
-   'https://api.lolhuman.xyz': 'YOUR-APIKEY',
-  'https://api.xteam.xyz': 'YOUR-APIKEY'
+   'http://api.vhtear.com': 'FauzanBotz',
+   'https://api.lolhuman.xyz': 'WanOff',
+  'https://api.xteam.xyz': 'kurrxd09'
 ,
   'https://api.zeks.me': 'rikkabotwa',
-  'https://rikka-api.xyz': 'beta',
-   'https://api.caliph71.xyz': 'beta'
+  'https://rikka-api.xyz': 'vKi3BY7N',
+   'https://api.caliph71.xyz': 'NICWWUGf'
 }
 
 let file = require.resolve(__filename)
